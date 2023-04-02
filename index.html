@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
+    />
+    <script defer src="./script.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="music-player">
+        <img src="./media/maxresdefault.jpg" class="song-img" id="sonGimg" />
+        <h1 id="song-title">קול דודי</h1>
+        <p id="songDescription">קול דודי I קובי ברומר</p>
+        <audio id="song">
+          <source src="./media/Kol Dodi.mp3" type="audio/mpeg" />
+          <!-- <source src="./media/Yehudi.mp3" type="audio/mpeg" />
+          <source src="./media/Manginat Halev.mp3" type="audio/mpeg" /> -->
+        </audio>
+        <input type="range" value="0" id="progress" />
+        <div class="controls">
+          <div><i class="bi bi-skip-backward-circle" id="prev-button"></i></div>
+          <div>
+            <i class="bi bi-play-circle" id="controlIcon"></i>
+          </div>
+          <div><i class="bi bi-fast-forward-circle" id="next-button"></i></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
