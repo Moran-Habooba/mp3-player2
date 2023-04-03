@@ -19,11 +19,26 @@ function playPause() {
     controlIcon.classList.remove("bi-play-circle");
   }
 }
-if (song.play()) {
-  setInterval(() => {
-    progress.value = song.currentTime;
-  }, 500);
+
+// song.addEventListener("loadedmetadata", function () {
+//   setInterval(() => {
+//     progress.value = song.currentTime;
+//   }, 500);
+// });
+
+setInterval(() => {
+  progress.value = song.currentTime;
+  document.getElementById("current-time").textContent = formatTime(
+    song.currentTime
+  );
+}, 500);
+
+function formatTime(time) {
+  const minutes = Math.floor(time / 60);
+  const seconds = Math.floor(time % 60);
+  return `${minutes}:${seconds.toString().padStart(2, "0")}`;
 }
+
 progress.onchange = function () {
   // song.play();
   song.currentTime = progress.value;

@@ -89,3 +89,7 @@
   text-shadow: 0 0.75px;
   font-family: "Courier New", Courier, monospace;
 }
+
+.time {
+  margin-top: 15px;
+}
