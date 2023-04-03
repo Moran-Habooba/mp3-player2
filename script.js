@@ -2,8 +2,6 @@ const progress = document.getElementById("progress");
 const song = document.getElementById("song");
 const controlIcon = document.getElementById("controlIcon");
 
-// let songHtmlFormat = `<source src=${playlist[0].src} type="audio/mpeg" />`;
-
 song.onloadedmetadata = function () {
   progress.max = song.duration;
   progress.value = song.currentTime;
@@ -27,7 +25,7 @@ if (song.play()) {
   }, 500);
 }
 progress.onchange = function () {
-  song.play();
+  // song.play();
   song.currentTime = progress.value;
   controlIcon.classList.add("bi-pause-circle");
   controlIcon.classList.remove("bi-play-circle");
