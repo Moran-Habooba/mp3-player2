@@ -1,7 +1,9 @@
 const progress = document.getElementById("progress");
 const song = document.getElementById("song");
 const controlIcon = document.getElementById("controlIcon");
-
+const volume = document.getElementById("volume");
+const volumeValue = document.getElementById("volume-value");
+const muteIco = document.getElementById("muteIco");
 song.onloadedmetadata = function () {
   progress.max = song.duration;
   progress.value = song.currentTime;
@@ -19,12 +21,6 @@ function playPause() {
     controlIcon.classList.remove("bi-play-circle");
   }
 }
-
-// song.addEventListener("loadedmetadata", function () {
-//   setInterval(() => {
-//     progress.value = song.currentTime;
-//   }, 500);
-// });
 
 setInterval(() => {
   progress.value = song.currentTime;
@@ -94,6 +90,26 @@ function prevSong() {
   songDescription.innerText = playlist[currentSongIndex].Description;
   song.play();
 }
+song.volume = 1;
+volume.oninput = function () {
+  song.volume = parseFloat(this.value);
+  volume.style.backgroundSize = `${this.value * 100}% 100%`;
+  volumeValue.innerText = Math.round(parseFloat(this.value) * 100);
+};
+
+function muteIcon() {
+  if (song.volume > 0) {
+    song.volume = 0;
+    muteIco.classList.add("bi-volume-mute");
+    muteIco.classList.remove("bi-volume-up");
+  } else {
+    song.volume = parseFloat(volume.value);
+    muteIco.classList.add("bi-volume-up");
+    muteIco.classList.remove("bi-volume-mute");
+  }
+}
+muteIco.addEventListener("click", muteIcon);
+
 document.getElementById("next-button").addEventListener("click", nextSong);
 document.getElementById("prev-button").addEventListener("click", prevSong);
 

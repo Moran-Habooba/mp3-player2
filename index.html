@@ -24,6 +24,24 @@
           <source src="./media/Kol Dodi.mp3" type="audio/mpeg" />
         </audio>
         <input type="range" value="0" id="progress" />
+        <label class="volume" for="volume"> volume </label>
+        <div id="volume-value">50</div>
+        <i class="bi bi-volume-mute" id="muteIco"></i>
+        <div class="volume-controls">
+          <span class="volume-icon minus-icon"
+            ><i class="fas fa-minus"></i
+          ></span>
+          <input
+            type="range"
+            value="0.5"
+            min="0"
+            max="1"
+            step="0.1"
+            id="volume"
+            name="volume"
+          />
+          <span class="volume-icon plus-icon"><i class="fas fa-plus"></i></span>
+        </div>
         <div class="controls">
           <div><i class="bi bi-skip-backward-circle" id="prev-button"></i></div>
           <div>
