@@ -113,11 +113,8 @@ muteIco.addEventListener("click", muteIcon);
 document.getElementById("next-button").addEventListener("click", nextSong);
 document.getElementById("prev-button").addEventListener("click", prevSong);
 
-/* <i class="bi bi-pause-circle"></i> */
-
 const playlistElement = document.querySelector(".playlist ul");
 
-// Clear the existing playlist
 playlistElement.innerHTML = "";
 
 // Populate the playlist
@@ -130,7 +127,6 @@ playlist.forEach((song, index) => {
     listItem.classList.add("current-song");
   }
 
-  // Add event listener to play the selected song
   listItem.addEventListener("click", () => {
     currentSongIndex = index;
     playSelectedSong();
@@ -147,13 +143,10 @@ function playSelectedSong() {
   // Update the song title
   songTitle.innerText = playlist[currentSongIndex].name;
 
-  // Update the song description
   songDescription.innerText = playlist[currentSongIndex].Description;
 
-  // Play the selected song
   song.play();
 
-  // Highlight the selected song in the playlist
   const playlistItems = playlistElement.querySelectorAll("li");
   playlistItems.forEach((item, index) => {
     if (index === currentSongIndex) {
