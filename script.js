@@ -114,3 +114,52 @@ document.getElementById("next-button").addEventListener("click", nextSong);
 document.getElementById("prev-button").addEventListener("click", prevSong);
 
 /* <i class="bi bi-pause-circle"></i> */
+
+const playlistElement = document.querySelector(".playlist ul");
+
+// Clear the existing playlist
+playlistElement.innerHTML = "";
+
+// Populate the playlist
+playlist.forEach((song, index) => {
+  const listItem = document.createElement("li");
+  listItem.textContent = song.name;
+
+  // Highlight the currently playing song
+  if (index === currentSongIndex) {
+    listItem.classList.add("current-song");
+  }
+
+  // Add event listener to play the selected song
+  listItem.addEventListener("click", () => {
+    currentSongIndex = index;
+    playSelectedSong();
+  });
+
+  playlistElement.appendChild(listItem);
+});
+
+// Function to play the selected song
+function playSelectedSong() {
+  // Update the audio source
+  song.src = playlist[currentSongIndex].src;
+
+  // Update the song title
+  songTitle.innerText = playlist[currentSongIndex].name;
+
+  // Update the song description
+  songDescription.innerText = playlist[currentSongIndex].Description;
+
+  // Play the selected song
+  song.play();
+
+  // Highlight the selected song in the playlist
+  const playlistItems = playlistElement.querySelectorAll("li");
+  playlistItems.forEach((item, index) => {
+    if (index === currentSongIndex) {
+      item.classList.add("current-song");
+    } else {
+      item.classList.remove("current-song");
+    }
+  });
+}

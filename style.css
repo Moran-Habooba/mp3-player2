@@ -160,3 +160,12 @@
   margin-top: 15px;
   display: block;
 }
+
+.dropdown-menu li {
+  text-align: center;
+  cursor: pointer;
+}
+
+.dropdown-menu li:hover {
+  color: #f53192;
+}
